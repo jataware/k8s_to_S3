@@ -73,10 +73,6 @@ if __name__ == "__main__":
     containerPath = "/data"
     get_plane_ID(containerPath)
 
-    # Copy data from persistent volume container:
-    ID = subprocess.call('docker inspect --format="{{.Id}}" kind-control-plane', shell=True)
-    subprocess.call('docker cp {ID}:mnt/data /data', shell=True)
-
     # Where we copy data from pv to container running this code...
     dataFolder = f"{containerPath}/*"
 
