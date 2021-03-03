@@ -1,0 +1,7 @@
+{
+"s3_accessKey": "<ACCES KEY>",
+"s3_secretKey": "<SECRET KEY>",
+"s3_bucket": "<BUCKET>",
+"s3_keyFolder": "<KEY>",
+"s3_region": "<REGION>"
+}
