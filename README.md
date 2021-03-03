@@ -10,23 +10,19 @@ WIP...
 
 ### Build PV-VOLUME:
 
-`kubectl apply -f pv-volume.yaml`
+`kubectl apply -f yaml/pv-volume.yaml`
 
 ### Build Persistent Volume CLAIM
 
-`kubectl apply -f pv-claim.yaml`
+`kubectl apply -f yaml/pv-claim.yaml`
 
 ### Build Model Pod
 
-`kubectl apply -f pod.yaml`
+`kubectl apply -f yaml/pod.yaml`
 
-### Get PVC Docker Container ID:
+### OR run all:
 
-`HHHMMMM!!!!????`
-
-### Copy to local machine:
-
-`docker cp <docker cont ID>:mnt/data /Users/travishartman/Desktop/test`
+`sh yaml/cluster.sh`
 
 ### Copy to S3:
 Call model_to_S3.py container..
