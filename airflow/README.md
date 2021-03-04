@@ -39,6 +39,12 @@ brew install helm
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 ```
 
+If `https://kubernetes-charts.storage.googleapis.com/` is no longer available, try:
+
+```
+helm repo add stable https://charts.helm.sh/stable
+```
+
 ### Run Airflow on Kubernetes
 Then:
 
