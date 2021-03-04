@@ -46,6 +46,12 @@ helm repo add stable https://charts.helm.sh/stable
 ```
 
 ### Run Airflow on Kubernetes
+
+Open the `airflow-helm-config-celery-executor.yaml` file and update line 17 to point to your local `dags` folder:
+```
+path: "//Users/path/to/k8s_to_S3/airflow/dags"
+```
+
 Then:
 
 ```
