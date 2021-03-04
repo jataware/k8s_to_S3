@@ -55,3 +55,32 @@ kubectl patch pvc results-claim -p '{"metadata":{"finalizers": []}}' --type=merg
 kubectl delete pvc results-claim
 kubectl delete persistentvolume results-volume
 ```
+
+### Triggering the DAG
+Since we have created a DAG called `fsc`, we can either trigger it in the [Airflow Dashboard](http://127.0.0.1:8080/admin/) or we can exec into the scheduler and trigger it there. First, find the name of your scheduler:
+
+```
+docker ps | grep scheduler |  awk '{print $1}'
+```
+
+This should return something like `367f129dd078` which is the ID of the scheduler container.
+
+Next, run:
+
+```
+docker exec -it 367f129dd078 /bin/bash
+```
+
+> Note: you must replace the above command with appropriate scheduler container ID
+
+You can then list available DAGs with:
+
+```
+airflow list_dags
+```
+
+You should see `fsc` listed, which you can trigger with:
+
+```
+airflow trigger_dag fsc
+```
