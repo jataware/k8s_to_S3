@@ -58,6 +58,14 @@ Then:
 helm install airflow stable/airflow -f airflow-helm-config-celery-executor.yaml --version 7.2.0
 ```
 
+Follow the `Get the Airflow Service URL by running these commands`:
+
+```
+export POD_NAME=$(kubectl get pods --namespace default -l "component=web,app=airflow" -o jsonpath="{.items[0].metadata.name}")
+echo http://127.0.0.1:8080
+kubectl port-forward --namespace default $POD_NAME 8080:8080
+```
+
 Now you should be able to navigate to the [Airflow Dashboard](http://127.0.0.1:8080/admin/) and you should see any DAG that is available in the `dags` directory listed. 
 
 ### Create Persistent Volume
